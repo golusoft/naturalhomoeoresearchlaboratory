@@ -49,14 +49,14 @@ const mockProducts = Array.from({ length: 24 }, (_, i) => ({
   category: PRODUCT_CATEGORIES[i % PRODUCT_CATEGORIES.length].name,
   categorySlug: PRODUCT_CATEGORIES[i % PRODUCT_CATEGORIES.length].slug,
   shortDescription: "Premium quality homeopathic medicine for effective treatment",
-  mrp: 75 + Math.floor(Math.random() * 200),
+  mrp: 75 + ((i * 17) % 200),
   packSize: ["30ml", "30g", "100ml", "200ml", "25g"][i % 5],
   availability: "in-stock" as const,
   isFeatured: i < 6,
   isNew: i >= 18,
   isBestseller: i >= 6 && i < 12,
-  rating: 4.5 + Math.random() * 0.5,
-  reviews: Math.floor(50 + Math.random() * 200),
+  rating: Number((4.5 + ((i * 3) % 6) * 0.1).toFixed(1)),
+  reviews: 50 + ((i * 13) % 200),
 }));
 
 const sortOptions = [
